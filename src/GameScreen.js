@@ -19,28 +19,12 @@ var GameScreen = cc.Layer.extend({
             cc.eventManager.addListener({
                 event: cc.EventListener.KEYBOARD,
                 onKeyPressed: function (key, event){
-                    gameScreen.board.moveObject(gameScreen.board.player,key - 37, 0);
+                    gameScreen.board.moveObject(gameScreen.board.player,key - 37, 1);
                 },
                 onKeyReleased: function (key, event) {
                 }
             }, this);
         }
-    },
-
-    getKeyStr: function (keycode){
-        if (keycode == cc.KEY.none)
-        {
-            return "";
-        }
-
-        for (var keyTemp in cc.KEY)
-        {
-            if (cc.KEY[keyTemp] == keycode)
-            {
-                return keyTemp;
-            }
-        }
-        return "";
     },
 
 });
