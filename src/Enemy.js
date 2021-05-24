@@ -7,7 +7,9 @@ var Enemy = cc.Sprite.extend({
     left: false,
     type: null,
     active: true,
-    pos: [10, 10],
+    pos: null,
+    hp: null,
+    cur_index: null,
     ctor : function(type){
         if(type > 2) type = 2;
         this._super();
@@ -16,6 +18,12 @@ var Enemy = cc.Sprite.extend({
     },
 
     init : function(){
+        this.pos = [];
+        this.addChild(cc.Node.create());
+        this.pos.push(MW.MAPSIZE[0] - 1);
+        this.pos.push(MW.MAPSIZE[1] - 1);
+        this.hp = 500;
+        this.cur_index = 0;
         this.idleAnimation = new cc.Animation();
         this.walkAnimation = new cc.Animation();
         addAnimation(this.idleAnimation, MW.ENEMY_NAME[this.type], true);
@@ -26,6 +34,7 @@ var Enemy = cc.Sprite.extend({
         this.walkAction = cc.animate(this.walkAnimation);
         this.anchorX = 0.5;
         this.anchorY = 0.7;
+        this,this.cur_index = 0;
         this.setScale(0.9);
         this.runAction(this.idleAction.repeatForever());
     },
@@ -52,7 +61,17 @@ var Enemy = cc.Sprite.extend({
     destroy: function(){
         this.visible = false;
         this.active = false;
+        
         this.setPosition(3000, 3000);
+        
+    },
+    hit: function(){
+        this.hp -= 250;
+        if(this.hp <= 0){
+            this.destroy();
+            return 1;
+        }
+        return 0;
     }
 });
 

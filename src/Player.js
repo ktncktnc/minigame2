@@ -5,6 +5,7 @@ var Player = cc.Sprite.extend({
     walkAction: null,
     left: true,
     isWalk: false,
+    active: true,
     pos: [0, 0],
     ctor : function(){
         this._super(res.KNIGHT_IDLE_1);
@@ -12,10 +13,12 @@ var Player = cc.Sprite.extend({
     },
 
     init : function(){
+        this.active = false;
         this.anchorX = 0.5;
-        this.anchorY = 0.7;
+        this.anchorY = 0.9;
+        
 
-        this.setScale(0.9);
+        this.setScaleY(0.9);
         this.setScaleX(-0.9);
         this.idleAnimation = new cc.Animation();
         this.walkAnimation = new cc.Animation();
@@ -44,5 +47,35 @@ var Player = cc.Sprite.extend({
         this.isWalk = false;
         //this.stopAction(this.walkAction);
         //this.runAction(this.idleAction.repeatForever());
+    },
+    shot: function(des){
+        sword = Sword.getOrCreateSword();
+        sword.setPosition(this.x, this.y - 15);
+
+        var throwSword = cc.sequence(
+            cc.moveTo(1, des),
+            cc.CallFunc(sword.destroy, sword)
+        );
+        sword.runAction(throwSword);
     }
 });
+
+Player.create = function(){
+    var player = new Player();
+    MW.CONTAINER.PLAYERS.push(player);
+    return player;
+}
+
+Player.getOrCreatePlayer = function(){
+    var player = null;
+    for(var i = 0; i < MW.CONTAINER.PLAYERS.length; i++){
+        player = MW.CONTAINER.PLAYERS[i];
+        if(!player.active){
+            player.active = true;
+            player.visible = true;
+            return player;
+        }
+    }
+    player = Player.create();
+    return player;
+}

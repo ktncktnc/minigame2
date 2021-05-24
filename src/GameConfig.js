@@ -8,6 +8,7 @@ MW.MAXLEVEL = 4;
 
 MW.DELAY_PERUNIT = 1/8;
 
+
 MW.ZORDER = {
     ENEMY: 300,
     GAMEBOARD: 100,
@@ -21,7 +22,7 @@ MW.SCALE = {
     PERSON: 2.5,
 }
 
-MW.BARRIER_SIZE = [3, 4, 5];
+MW.BARRIER_SIZE = [5, 6, 7];
 MW.VELOCITY = {
     PLAYER: 0.3,
     ENEMIES: [0.3, 0.3, 0.3],
@@ -40,9 +41,15 @@ MW.SOUND = true;
 
 MW.CONTAINER = {
     ENEMIES: [],
-    BARRIERS: []
+    BARRIERS: [],
+    PLAYERS: [],
+    PRINCESS: [],
+    SWORDS: []
 }
 
-MW.BUTTON_SIZE = [198, 52];
+MW.BUTTON_SIZE = [500, 131];
 
 MW.ENEMY_NAME = ["Demon", "Executioner", "Thief"];
+MW.ENEMIES_SIZE = [1, 2, 3];
+
+

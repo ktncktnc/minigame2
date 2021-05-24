@@ -3,6 +3,7 @@ var Princess = cc.Sprite.extend({
     walkAnimation: null,
     idleAction: null,
     walkAction: null,
+    pos: null,
     ctor : function(){
         this._super(res.KNIGHT_IDLE_1);
         this.init();
@@ -11,6 +12,9 @@ var Princess = cc.Sprite.extend({
     init : function(){
         this.anchorX = 0.5;
         this.anchorY = 0.7;
+        this.pos = []
+        this.pos.push(0);
+        this.pos.push(0);
         this.setScale(0.9);
         this.idleAnimation = new cc.Animation();
         this.walkAnimation = new cc.Animation();

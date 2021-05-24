@@ -7,6 +7,8 @@ var res = {
     //font
     FONT_BITMAP_NUMBER_1:"fonts/number_1.fnt",
     FONT_BITMAP_DICE_NUMBER: "fonts/diceNumber.fnt",
+
+    FONT_8BIT : "fonts/04b03.ttf",
     //zcsd
     //screen
     ZCSD_SCREEN_MENU:"zcsd/screen_menu.json",
@@ -21,12 +23,15 @@ var res = {
     //images
     Slot1_png : "zcsd/slot1.png",
 
+    BUTTON          :   "res/button.png",
+
     TILEMAP_IMG     :   "res/Tilemap/GameTile.png",
     CHARACTERS_IMG  :   "res/Tilemap/knights.png",
     TILEMAP         :   "res/map.tmx",
 
     HOLE            :   "res/Barrier/hole.png",
     SPIKE           :   "res/Barrier/spike.png",
+    SWORD           :   "res/sword.png",
 
     THIEF_IDLE_1    :   "res/Frames/Thief/Thief_Idle_1.png",
     THIEF_IDLE_2    :   "res/Frames/Thief/Thief_Idle_2.png",
@@ -131,4 +136,13 @@ var g_resources = [
     "zcsd/screen_menu.json",
     "zcsd/screen_network.json",
     "zcsd/screen_zalo.json"
+];
+
+var g_fonts = [
+    //@face-font for WebFonts
+    {
+        type:"font",
+        name:"myfont",
+        srcs:["res/fonts/04b03.eot", "res/fonts/04b03.ttf"]
+    }
 ];

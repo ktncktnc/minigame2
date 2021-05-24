@@ -18,7 +18,9 @@
         "src/**/*.js"
     ],
     "jsList": [
+        "src/Astar.js",
         "src/data/Resource.js",
+        "src/Sword.js",
         "src/data/ResourceAnimation.js",
         "src/framework/AnimationMgr.js",
         "src/framework/Framework.js",
@@ -51,6 +53,9 @@
         "src/Enemy.js",
         "src/Barrier.js",
         "src/GameBoard.js",
-        "src/GameScreen.js"
+        "src/LvDoneScreen.js",
+        "src/LoseScreen.js",
+        "src/GameScreen.js",
+        "src/MainScreen.js"
     ]
 }

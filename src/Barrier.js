@@ -1,6 +1,6 @@
 var Barrier = cc.Sprite.extend({
     active: true,
-    pos: [0 ,0],
+    pos: null,
     ctor : function(){
         var rand = getRandomInt(0, 2);
         if(rand == 0)
@@ -14,6 +14,9 @@ var Barrier = cc.Sprite.extend({
         cc.log("init barrier");
         this.anchorY = 1.5;
         this.anchorX = 0.5;
+        this.pos = [];
+        this.pos.push(0);
+        this.pos.push(0);
     },
 
     destroy: function(){
