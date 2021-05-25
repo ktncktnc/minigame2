@@ -24,8 +24,8 @@ var Player = cc.Sprite.extend({
         this.walkAnimation = new cc.Animation();
         addAnimation(this.idleAnimation, "Knight", true);
         addAnimation(this.walkAnimation, "Knight", false);
-        this.idleAnimation.setDelayPerUnit(MW.DELAY_PERUNIT);
-        this.walkAnimation.setDelayPerUnit(MW.DELAY_PERUNIT);
+        this.idleAnimation.setDelayPerUnit(CONFIG.DELAY_PERUNIT);
+        this.walkAnimation.setDelayPerUnit(CONFIG.DELAY_PERUNIT);
         this.idleAction = new cc.Sequence(cc.animate(this.idleAnimation));
         this.walkAction = new cc.Sequence(cc.animate(this.walkAnimation));
         this.runAction(this.walkAction.repeatForever());
@@ -38,7 +38,7 @@ var Player = cc.Sprite.extend({
         this.isWalk = true;
         var end_point = cc.p(x, y);
         var moveTo = cc.sequence(
-            cc.moveBy(MW.VELOCITY.PLAYER, end_point),
+            cc.moveBy(CONFIG.VELOCITY.PLAYER, end_point),
             cc.CallFunc(this.idle, this)
         );
         this.runAction(moveTo);
@@ -53,7 +53,7 @@ var Player = cc.Sprite.extend({
         sword.setPosition(this.x, this.y - 15);
 
         var throwSword = cc.sequence(
-            cc.moveTo(1, des),
+            cc.moveTo(0.9/(8.5*1.5*16)*Math.sqrt(Math.pow(des.x - this.x, 2) + Math.pow(des.y - this.y, 2)), des),
             cc.CallFunc(sword.destroy, sword)
         );
         sword.runAction(throwSword);
@@ -62,14 +62,14 @@ var Player = cc.Sprite.extend({
 
 Player.create = function(){
     var player = new Player();
-    MW.CONTAINER.PLAYERS.push(player);
+    CONFIG.CONTAINER.PLAYERS.push(player);
     return player;
 }
 
 Player.getOrCreatePlayer = function(){
     var player = null;
-    for(var i = 0; i < MW.CONTAINER.PLAYERS.length; i++){
-        player = MW.CONTAINER.PLAYERS[i];
+    for(var i = 0; i < CONFIG.CONTAINER.PLAYERS.length; i++){
+        player = CONFIG.CONTAINER.PLAYERS[i];
         if(!player.active){
             player.active = true;
             player.visible = true;

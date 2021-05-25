@@ -20,8 +20,8 @@ var Princess = cc.Sprite.extend({
         this.walkAnimation = new cc.Animation();
         addAnimation(this.idleAnimation, "Princess", true);
         addAnimation(this.walkAnimation, "Princess", false);
-        this.idleAnimation.setDelayPerUnit(MW.DELAY_PERUNIT);
-        this.walkAnimation.setDelayPerUnit(MW.DELAY_PERUNIT);
+        this.idleAnimation.setDelayPerUnit(CONFIG.DELAY_PERUNIT);
+        this.walkAnimation.setDelayPerUnit(CONFIG.DELAY_PERUNIT);
         this.idleAction = cc.animate(this.idleAnimation);
         this.walkAction = cc.animate(this.walkAnimation);
         this.runAction(this.idleAction.repeatForever());

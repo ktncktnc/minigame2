@@ -5,6 +5,7 @@ var Sword = cc.Sprite.extend({
         gameScreen.board.addChild(this, 1000);
         this.setScale(0.3);
         cc.log("add child");
+        this.retain();
 
     },
     destroy: function(){
@@ -17,14 +18,14 @@ var Sword = cc.Sprite.extend({
 
 Sword.create = function(){
     var sword = new Sword();
-    MW.CONTAINER.SWORDS.push(sword);
+    CONFIG.CONTAINER.SWORDS.push(sword);
     return sword;
 }
 
 Sword.getOrCreateSword = function(){
     var sword = null;
-    for(var i = 0; i < MW.CONTAINER.SWORDS.length; i++){
-        sword = MW.CONTAINER.SWORDS[i];
+    for(var i = 0; i < CONFIG.CONTAINER.SWORDS.length; i++){
+        sword = CONFIG.CONTAINER.SWORDS[i];
         if(sword.active == false){
             sword.active = true;
             sword.visible = true;
@@ -39,17 +40,9 @@ Sword.getOrCreateSword = function(){
 Sword.preset = function(){
     var sword = null;
     for(var i = 0; i < 20; i++){
-        sword = Sword.create(MW.LASER.PLAYER, res.LASER1);
+        sword = Sword.create();
         sword.active = false;
         sword.visible = false;
-       // MW.CONTAINER.PLAYER_LASERS.push(sword);
+       // CONFIG.CONTAINER.PLAYER_LASERS.push(sword);
     };
-
-    for(var i = 0; i < 20; i++){
-        sword = Sword.create(MW.LASER.ENEMY, res.LASER2);
-        sword.active = false;
-        sword.visible = false;
-        // MW.CONTAINER.PLAYER_LASERS.push(sword);
-    }
-
 }

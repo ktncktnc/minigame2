@@ -1,45 +1,45 @@
-var MW = MW || {};
-MW.GAME_STATE = {
+var CONFIG = CONFIG || {};
+CONFIG.GAME_STATE = {
     HOME:0,
     PLAY:1,
     OVER:2
 };
-MW.MAXLEVEL = 4;
+CONFIG.MAXLEVEL = 4;
 
-MW.DELAY_PERUNIT = 1/8;
+CONFIG.DELAY_PERUNIT = 1/8;
 
 
-MW.ZORDER = {
+CONFIG.ZORDER = {
     ENEMY: 300,
     GAMEBOARD: 100,
     SPIKE: 200,
     PLAYER: 400
 };
 
-MW.MAPSIZE = [7,7]
-MW.SCALE = {
+CONFIG.MAPSIZE = [7,7]
+CONFIG.SCALE = {
     FLOOR: 3.5,
     PERSON: 2.5,
 }
 
-MW.BARRIER_SIZE = [5, 6, 7];
-MW.VELOCITY = {
+CONFIG.BARRIER_SIZE = [5, 6, 7];
+CONFIG.VELOCITY = {
     PLAYER: 0.3,
     ENEMIES: [0.3, 0.3, 0.3],
 
 }
-MW.LEVEL_SIZE = {
+CONFIG.LEVEL_SIZE = {
     LEVEL1: [3, 4],
     LEVEL2: [4, 5],
     LEVEL3: [5, 6],
     LEVEL4: [6, 7]
 }
 
-MW.SCORE = 0;
+CONFIG.SCORE = 0;
 
-MW.SOUND = true;
+CONFIG.SOUND = true;
 
-MW.CONTAINER = {
+CONFIG.CONTAINER = {
     ENEMIES: [],
     BARRIERS: [],
     PLAYERS: [],
@@ -47,9 +47,9 @@ MW.CONTAINER = {
     SWORDS: []
 }
 
-MW.BUTTON_SIZE = [500, 131];
+CONFIG.BUTTON_SIZE = [500, 131];
 
-MW.ENEMY_NAME = ["Demon", "Executioner", "Thief"];
-MW.ENEMIES_SIZE = [1, 2, 3];
+CONFIG.ENEMY_NAME = ["Demon", "Executioner", "Thief"];
+CONFIG.ENEMIES_SIZE = [1, 2, 3];
 
 

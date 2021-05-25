@@ -18,18 +18,16 @@ var Enemy = cc.Sprite.extend({
     },
 
     init : function(){
-        this.pos = [];
+        this.pos = [CONFIG.MAPSIZE[0] - 1, CONFIG.MAPSIZE[1] - 1];
         this.addChild(cc.Node.create());
-        this.pos.push(MW.MAPSIZE[0] - 1);
-        this.pos.push(MW.MAPSIZE[1] - 1);
         this.hp = 500;
         this.cur_index = 0;
         this.idleAnimation = new cc.Animation();
         this.walkAnimation = new cc.Animation();
-        addAnimation(this.idleAnimation, MW.ENEMY_NAME[this.type], true);
-        addAnimation(this.walkAnimation, MW.ENEMY_NAME[this.type], false);
-        this.idleAnimation.setDelayPerUnit(MW.DELAY_PERUNIT);
-        this.walkAnimation.setDelayPerUnit(MW.DELAY_PERUNIT);
+        addAnimation(this.idleAnimation, CONFIG.ENEMY_NAME[this.type], true);
+        addAnimation(this.walkAnimation, CONFIG.ENEMY_NAME[this.type], false);
+        this.idleAnimation.setDelayPerUnit(CONFIG.DELAY_PERUNIT);
+        this.walkAnimation.setDelayPerUnit(CONFIG.DELAY_PERUNIT);
         this.idleAction = cc.animate(this.idleAnimation);
         this.walkAction = cc.animate(this.walkAnimation);
         this.anchorX = 0.5;
@@ -52,7 +50,7 @@ var Enemy = cc.Sprite.extend({
         this.isWalk = true;
         var end_point = cc.p(x, y);
         var moveTo = cc.sequence(
-            cc.moveBy(MW.VELOCITY.ENEMIES[this.type], end_point),
+            cc.moveBy(CONFIG.VELOCITY.ENEMIES[this.type], end_point),
             cc.CallFunc(this.idle, this)
         );
         this.runAction(moveTo);
@@ -77,16 +75,17 @@ var Enemy = cc.Sprite.extend({
 
 Enemy.create = function(type){
     var enemy = new Enemy(type);
-    gameScreen.board.addChild(enemy, MW.ZORDER.ENEMY);
-    MW.CONTAINER.ENEMIES.push(enemy);
+    gameScreen.board.addChild(enemy, CONFIG.ZORDER.ENEMY);
+    CONFIG.CONTAINER.ENEMIES.push(enemy);
     return enemy;
 }
 
 Enemy.getOrCreateEnemy = function(){
     var enemy = null;
-    for(var i = 0; i < MW.CONTAINER.ENEMIES.length; i++){
-        enemy = MW.CONTAINER.ENEMIES[i];
+    for(var i = 0; i < CONFIG.CONTAINER.ENEMIES.length; i++){
+        enemy = CONFIG.CONTAINER.ENEMIES[i];
         if(enemy.active == false){
+            enemy.init();
             enemy.active = true;
             enemy.visible = true;
             return enemy;

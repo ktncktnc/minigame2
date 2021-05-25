@@ -27,15 +27,15 @@ var Barrier = cc.Sprite.extend({
 
 Barrier.create = function(){
     var barrier = new Barrier();
-    gameScreen.board.addChild(barrier, MW.ZORDER.SPIKE);
-    MW.CONTAINER.BARRIERS.push(barrier);
+    gameScreen.board.addChild(barrier, CONFIG.ZORDER.SPIKE);
+    CONFIG.CONTAINER.BARRIERS.push(barrier);
     return barrier;
 };
 
 Barrier.getOrCreateBarrier = function(){
     var barrier = null;
-    for(var i = 0; i < MW.CONTAINER.BARRIERS.length; i++){
-        barrier = MW.CONTAINER.BARRIERS[i];
+    for(var i = 0; i < CONFIG.CONTAINER.BARRIERS.length; i++){
+        barrier = CONFIG.CONTAINER.BARRIERS[i];
         if(barrier.active == false){
             barrier.active = true;
             barrier.visible = true;

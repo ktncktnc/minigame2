@@ -10,7 +10,7 @@ var GameScreen = cc.Layer.extend({
         this._super();
         gameScreen = this;
         this.level = 1;
-        this.state = MW.GAME_STATE.HOME;
+        this.state = CONFIG.GAME_STATE.HOME;
         this.board = new GameBoard();
         
         this.board.setScale(2.5);
@@ -28,7 +28,7 @@ var GameScreen = cc.Layer.extend({
             cc.eventManager.addListener({
                 event: cc.EventListener.KEYBOARD,
                 onKeyPressed: function (key, event){
-                    if(gameScreen.state == MW.GAME_STATE.HOME){
+                    if(gameScreen.state == CONFIG.GAME_STATE.HOME){
                         gameScreen.board.startGame();
                     }
                     if(key == 32){

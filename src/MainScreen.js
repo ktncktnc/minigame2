@@ -16,17 +16,17 @@ var MainScreen = cc.Layer.extend({
         this.title.setPosition(this.size.width/2, this.size.height - 100);
 
 
-        var newGameNormal = new cc.Sprite(res.BUTTON, cc.rect(0, 0, MW.BUTTON_SIZE[0], MW.BUTTON_SIZE[1]));
-        var newGameSelected = new cc.Sprite(res.BUTTON, cc.rect(0, MW.BUTTON_SIZE[1], MW.BUTTON_SIZE[0], MW.BUTTON_SIZE[1]));
-        var newGameDisabled = new cc.Sprite(res.BUTTON, cc.rect(0, MW.BUTTON_SIZE[1], MW.BUTTON_SIZE[0], MW.BUTTON_SIZE[1]));
+        var newGameNormal = new cc.Sprite(res.BUTTON, cc.rect(0, 0, CONFIG.BUTTON_SIZE[0], CONFIG.BUTTON_SIZE[1]));
+        var newGameSelected = new cc.Sprite(res.BUTTON, cc.rect(0, CONFIG.BUTTON_SIZE[1], CONFIG.BUTTON_SIZE[0], CONFIG.BUTTON_SIZE[1]));
+        var newGameDisabled = new cc.Sprite(res.BUTTON, cc.rect(0, CONFIG.BUTTON_SIZE[1], CONFIG.BUTTON_SIZE[0], CONFIG.BUTTON_SIZE[1]));
         this.start = new cc.MenuItemSprite(newGameNormal, newGameSelected, newGameDisabled, function () {
             this.onNewGame();
         }.bind(this));
 		this.start.scale = 0.5;
 
-        var exitNormal = new cc.Sprite(res.BUTTON,  cc.rect(0,  MW.BUTTON_SIZE[1]*2,  MW.BUTTON_SIZE[0], MW.BUTTON_SIZE[1]));
-        var exitSelected = new cc.Sprite(res.BUTTON, cc.rect(0, MW.BUTTON_SIZE[1]*3, MW.BUTTON_SIZE[0], MW.BUTTON_SIZE[1]));
-        var exitDisabled = new cc.Sprite(res.BUTTON, cc.rect(0, MW.BUTTON_SIZE[1]*3, MW.BUTTON_SIZE[0], MW.BUTTON_SIZE[1]));
+        var exitNormal = new cc.Sprite(res.BUTTON,  cc.rect(0,  CONFIG.BUTTON_SIZE[1]*2,  CONFIG.BUTTON_SIZE[0], CONFIG.BUTTON_SIZE[1]));
+        var exitSelected = new cc.Sprite(res.BUTTON, cc.rect(0, CONFIG.BUTTON_SIZE[1]*3, CONFIG.BUTTON_SIZE[0], CONFIG.BUTTON_SIZE[1]));
+        var exitDisabled = new cc.Sprite(res.BUTTON, cc.rect(0, CONFIG.BUTTON_SIZE[1]*3, CONFIG.BUTTON_SIZE[0], CONFIG.BUTTON_SIZE[1]));
         this.exit = new cc.MenuItemSprite(exitNormal, exitSelected, exitDisabled, function () {
             this.onExitGame();
             //flareEffect(flare, this, this.onNewGame);		//write your own flare effect
